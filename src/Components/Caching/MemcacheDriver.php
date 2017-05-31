@@ -3,11 +3,12 @@
 namespace Cable\Caching\Memcache;
 
 
+use Cable\Caching\Driver\BootableDriverInterface;
 use Cable\Caching\Driver\DriverInterface;
 use Cable\Caching\Driver\FlushableDriverInterface;
 use Cable\Caching\Driver\TimeableDriverInterface;
 
-class MemcacheDriver implements DriverInterface, TimeableDriverInterface, FlushableDriverInterface
+class MemcacheDriver implements BootableDriverInterface,DriverInterface, TimeableDriverInterface, FlushableDriverInterface
 {
 
     private $memcache;
@@ -60,13 +61,14 @@ class MemcacheDriver implements DriverInterface, TimeableDriverInterface, Flusha
     public function set($name, $value, $time)
     {
         return $this->memcache->set($name, $value, $time);
+
     }
 
     /**
      * @param array $configs
      * @return mixed
      */
-    public function boot(array $configs)
+    public function boot($configs = array())
     {
         if (!isset($configs['memcache']['servers'])) {
             $configs['memcache']['servers'][] = [
@@ -83,5 +85,7 @@ class MemcacheDriver implements DriverInterface, TimeableDriverInterface, Flusha
                 $server['port']
             );
         }
+
+        return $this;
     }
 }

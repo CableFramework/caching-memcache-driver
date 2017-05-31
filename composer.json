@@ -1,0 +1,11 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Cable\\Caching\\Memcache\\": "src/Components/Caching"
+        }
+    },
+
+    "require": {
+        "cable/cable-caching": "1.0.5"
+    }
+}
