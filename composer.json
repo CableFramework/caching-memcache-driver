@@ -9,7 +9,7 @@
         }
     },
 
-    "require": {
-        "cable/cable-caching": "1.0.6"
+    "require-dev": {
+        "cable/cable-caching": "1.0.8"
     }
 }
