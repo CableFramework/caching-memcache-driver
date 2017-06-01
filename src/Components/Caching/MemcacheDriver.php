@@ -8,11 +8,25 @@ use Cable\Caching\Driver\DriverInterface;
 use Cable\Caching\Driver\FlushableDriverInterface;
 use Cable\Caching\Driver\TimeableDriverInterface;
 
-class MemcacheDriver implements BootableDriverInterface,DriverInterface, TimeableDriverInterface, FlushableDriverInterface
+/**
+ * Class MemcacheDriver
+ * @package Cable\Caching\Memcache
+ */
+class MemcacheDriver implements
+    BootableDriverInterface,
+    DriverInterface,
+    TimeableDriverInterface,
+    FlushableDriverInterface
 {
 
+    /**
+     * @var \Memcached
+     */
     private $memcache;
 
+    /**
+     * MemcacheDriver constructor.
+     */
     public function __construct()
     {
         $this->memcache = new \Memcached();
