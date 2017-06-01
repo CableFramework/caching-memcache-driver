@@ -1,4 +1,8 @@
 {
+    "name": "cable/cable-caching-memcache",
+    "description": "Memcache driver for Cable Caching",
+    "license": "MIT",
+    "type": "library",
     "autoload": {
         "psr-4": {
             "Cable\\Caching\\Memcache\\": "src/Components/Caching"
@@ -6,6 +10,6 @@
     },
 
     "require": {
-        "cable/cable-caching": "1.0.5"
+        "cable/cable-caching": "1.0.6"
     }
 }
